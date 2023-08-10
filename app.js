@@ -10,11 +10,11 @@ const { Z_FULL_FLUSH } = require("zlib");
 var model;
 
 (async function start() {
+    //모델 불러오는 함수
     try {
         model = await tf.loadLayersModel(
             "file://" + __dirname + "/public/model_json/model.json"
-        );
-        model.predict();
+        ); //모델 불러오기
     } catch (error) {
         console.error("E:", error);
     }
@@ -71,7 +71,7 @@ function clearDestination(callback) {
             try {
                 fs.unlinkSync(filePath);
             } catch (err) {
-                console.error(err);
+                console.error("e", err);
             }
         });
 
